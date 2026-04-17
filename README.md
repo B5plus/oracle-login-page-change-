@@ -1,265 +1,228 @@
-.custom-login-page,
-body.custom-login-page {
-    min-height: 100vh;
-    margin: 0;
-    padding: 0;
+/* =========================================================
+   DELETE OLD CSS FIRST
+   Images used:
+   #APP_IMAGES#d_login.png
+   #APP_IMAGES#m_login.png
+   ========================================================= */
+
+/* full page */
+body.custom-login-page.t-PageBody--login,
+body.custom-login-page.t-PageBody--login .t-Body,
+body.custom-login-page.t-PageBody--login #wwvFlowForm,
+body.custom-login-page.t-PageBody--login .t-Body-content {
+    min-height: 100vh !important;
+    margin: 0 !important;
+    background: #120021 url("#APP_IMAGES#d_login.png") no-repeat center center / cover !important;
+    font-family: "Segoe UI", Arial, sans-serif !important;
+    overflow-x: hidden !important;
 }
 
-/* desktop background */
-body.custom-login-page,
-.custom-login-page .t-Body,
-.custom-login-page #wwvFlowForm,
-.custom-login-page .t-Body-content {
-    min-height: 100vh;
-    background-color: #140028 !important;
-    background-image: url("#APP_IMAGES#d_login.png") !important;
-    background-repeat: no-repeat !important;
-    background-position: left center !important;
-    background-size: cover !important;
-    font-family: Arial, sans-serif;
+/* hide header/footer */
+body.custom-login-page .t-Header,
+body.custom-login-page .t-Footer,
+body.custom-login-page .t-Body-nav,
+body.custom-login-page .t-Body-title {
+    display: none !important;
 }
 
-/* main layout */
-.custom-login-page .t-Login-container {
+/* desktop split overlay */
+body.custom-login-page .t-Login-container {
     min-height: 100vh !important;
     display: flex !important;
-    align-items: center !important;
     justify-content: flex-end !important;
-    padding: 0 90px 0 40px !important;
+    align-items: flex-start !important;
+    padding: 14vh 7vw 0 0 !important;
+    box-sizing: border-box !important;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(12, 0, 28, 0.00) 0%,
+            rgba(12, 0, 28, 0.00) 55%,
+            rgba(18, 0, 40, 0.55) 55%,
+            rgba(18, 0, 40, 0.82) 72%,
+            rgba(18, 0, 40, 0.96) 100%
+        ) !important;
 }
 
-/* right panel */
-.custom-login-page .t-Login-region,
-.custom-login-page .t-Region,
-.custom-login-page .t-Login-region .t-Region-bodyWrap,
-.custom-login-page .t-Login-region .t-Region-content {
-    background: rgba(24, 0, 50, 0.96) !important;
+/* main form area */
+body.custom-login-page #login-panel,
+body.custom-login-page #login-panel .t-Region-bodyWrap,
+body.custom-login-page #login-panel .t-Region-body,
+body.custom-login-page #login-panel .t-Region-content {
+    background: transparent !important;
     border: none !important;
     box-shadow: none !important;
 }
 
-.custom-login-page .t-Login-region {
-    width: 420px !important;
-    max-width: 420px !important;
-    min-height: 100vh !important;
+body.custom-login-page #login-panel {
+    position: relative !important;
+    width: min(31vw, 420px) !important;
+    min-width: 340px !important;
     margin: 0 !important;
-    padding: 0 42px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-    border-radius: 0 !important;
+    padding: 0 !important;
 }
 
-/* remove unwanted default items */
-.custom-login-page .t-Login-logo,
-.custom-login-page .t-Region-header,
-.custom-login-page .t-Region-buttons,
-.custom-login-page .a-Login-secondaryActions,
-.custom-login-page .t-Form-helpButton,
-.custom-login-page .js-itemHelp,
-.custom-login-page .apex-item-checkbox,
-.custom-login-page .checkbox_group,
-.custom-login-page .t-Form-fieldContainer--checkbox {
+/* remove default APEX header/logo */
+body.custom-login-page #login-panel .t-Region-header,
+body.custom-login-page #login-panel .t-Login-logo,
+body.custom-login-page #login-panel .t-Region-buttons {
     display: none !important;
 }
 
-/* title */
-.custom-login-page .t-Login-title,
-.custom-login-page .t-Region-title {
-    display: block !important;
-    color: #ffffff !important;
-    font-size: 68px !important;
-    line-height: 1 !important;
-    font-weight: 800 !important;
-    letter-spacing: 1px !important;
-    text-transform: uppercase !important;
-    margin: 0 0 28px 0 !important;
-    text-align: left !important;
+/* add title exactly by CSS */
+body.custom-login-page #login-panel::before {
+    content: "LOGIN";
+    display: block;
+    color: #ffffff;
+    font-size: clamp(54px, 5vw, 78px);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: 1px;
+    margin: 0 0 28px 0;
+    text-transform: uppercase;
 }
 
-/* labels */
-.custom-login-page .t-Form-label,
-.custom-login-page label {
-    color: #ffffff !important;
-    font-size: 13px !important;
-    font-weight: 600 !important;
-    margin-bottom: 8px !important;
+/* hide default labels/text if they show */
+body.custom-login-page #login-panel .t-Form-label,
+body.custom-login-page #login-panel .t-Form-itemText--pre,
+body.custom-login-page #login-panel .t-Form-itemText--post,
+body.custom-login-page #login-panel .t-Form-helpButton,
+body.custom-login-page #login-panel .js-itemHelp,
+body.custom-login-page #login-panel .apex-item-checkbox,
+body.custom-login-page #login-panel .checkbox_group,
+body.custom-login-page #login-panel .t-Form-fieldContainer--checkbox,
+body.custom-login-page #login-panel .a-Login-secondaryActions {
+    display: none !important;
 }
 
-/* field spacing */
-.custom-login-page .t-Form-fieldContainer {
-    margin-bottom: 18px !important;
+/* spacing */
+body.custom-login-page #login-panel .t-Form-fieldContainer {
+    margin: 0 0 18px 0 !important;
+}
+
+body.custom-login-page #login-panel .t-Form-itemWrapper,
+body.custom-login-page #login-panel .t-Form-inputContainer,
+body.custom-login-page #login-panel .apex-item-wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
 }
 
 /* inputs */
-.custom-login-page input[type="text"],
-.custom-login-page input[type="password"] {
+body.custom-login-page #login-panel input[type="text"],
+body.custom-login-page #login-panel input[type="password"] {
     width: 100% !important;
-    height: 50px !important;
+    height: 46px !important;
+    background: rgba(48, 19, 84, 0.96) !important;
     border: none !important;
     border-radius: 8px !important;
-    background: #2b1148 !important;
     color: #ffffff !important;
     font-size: 15px !important;
-    padding: 0 16px !important;
+    padding: 0 14px !important;
     box-shadow: none !important;
     outline: none !important;
 }
 
 /* placeholder */
-.custom-login-page input[type="text"]::placeholder,
-.custom-login-page input[type="password"]::placeholder {
-    color: #b8a9ce !important;
+body.custom-login-page #login-panel input[type="text"]::placeholder,
+body.custom-login-page #login-panel input[type="password"]::placeholder {
+    color: #b8acd1 !important;
     opacity: 1 !important;
 }
 
 /* focus */
-.custom-login-page input[type="text"]:focus,
-.custom-login-page input[type="password"]:focus {
-    background: #2b1148 !important;
-    border: 1px solid #67b6ff !important;
-    box-shadow: 0 0 0 2px rgba(103,182,255,0.15) !important;
+body.custom-login-page #login-panel input[type="text"]:focus,
+body.custom-login-page #login-panel input[type="password"]:focus {
+    border: 1px solid rgba(105, 185, 255, 0.9) !important;
+    box-shadow: 0 0 0 2px rgba(105, 185, 255, 0.12) !important;
 }
 
 /* button */
-.custom-login-page .t-Button,
-.custom-login-page button.t-Button,
-.custom-login-page .ui-button {
+body.custom-login-page #login-panel .t-Button,
+body.custom-login-page #login-panel button.t-Button,
+body.custom-login-page #login-panel .ui-button {
     width: 100% !important;
-    height: 52px !important;
+    height: 50px !important;
+    margin-top: 14px !important;
     border: none !important;
     border-radius: 12px !important;
-    background: linear-gradient(90deg, #7b2cff 0%, #63b8ff 100%) !important;
+    background: linear-gradient(90deg, #7d2cff 0%, #68b8ff 100%) !important;
     color: #ffffff !important;
     font-size: 18px !important;
     font-weight: 700 !important;
     text-shadow: none !important;
     box-shadow: none !important;
-    margin-top: 10px !important;
 }
 
-.custom-login-page .t-Button:hover,
-.custom-login-page button.t-Button:hover {
-    opacity: 0.96 !important;
+body.custom-login-page #login-panel .t-Button:hover,
+body.custom-login-page #login-panel button.t-Button:hover {
+    filter: brightness(1.03);
 }
 
-/* hide any extra text under button if present */
-.custom-login-page .t-Login-region p,
-.custom-login-page .t-Login-region .t-Form-itemText--post,
-.custom-login-page .t-Login-region .t-Form-itemText--pre {
+/* remove strange extra paragraph text if any */
+body.custom-login-page #login-panel p {
     display: none !important;
 }
 
-/* desktop */
-@media (min-width: 1024px) {
-    .custom-login-page .t-Login-container {
-        justify-content: flex-end !important;
-        padding: 0 90px 0 40px !important;
+/* =========================
+   TABLET + MOBILE
+   ========================= */
+@media (max-width: 900px) {
+    body.custom-login-page.t-PageBody--login,
+    body.custom-login-page.t-PageBody--login .t-Body,
+    body.custom-login-page.t-PageBody--login #wwvFlowForm,
+    body.custom-login-page.t-PageBody--login .t-Body-content {
+        background: #120021 url("#APP_IMAGES#m_login.png") no-repeat center top / cover !important;
     }
 
-    .custom-login-page .t-Login-region {
-        width: 420px !important;
-        max-width: 420px !important;
+    body.custom-login-page .t-Login-container {
         min-height: 100vh !important;
-        padding: 0 42px !important;
-    }
-}
-
-/* tablet */
-@media (max-width: 1023px) {
-    body.custom-login-page,
-    .custom-login-page .t-Body,
-    .custom-login-page #wwvFlowForm,
-    .custom-login-page .t-Body-content {
-        background-image: url("#APP_IMAGES#m_login.png") !important;
-        background-repeat: no-repeat !important;
-        background-position: center top !important;
-        background-size: cover !important;
-    }
-
-    .custom-login-page .t-Login-container {
-        justify-content: center !important;
+        justify-content: flex-start !important;
         align-items: stretch !important;
         padding: 0 !important;
+        background:
+            linear-gradient(
+                180deg,
+                rgba(12, 0, 28, 0.06) 0%,
+                rgba(12, 0, 28, 0.16) 28%,
+                rgba(12, 0, 28, 0.40) 45%,
+                rgba(12, 0, 28, 0.72) 62%,
+                rgba(12, 0, 28, 0.92) 100%
+            ) !important;
     }
 
-    .custom-login-page .t-Login-region {
+    body.custom-login-page #login-panel {
         width: 100% !important;
-        max-width: 100% !important;
-        min-height: 100vh !important;
-        padding: 110px 24px 30px 24px !important;
-        background: rgba(24, 0, 50, 0.78) !important;
+        min-width: 0 !important;
+        max-width: none !important;
+        padding: 34vh 24px 32px 24px !important;
+        box-sizing: border-box !important;
     }
 
-    .custom-login-page .t-Login-title,
-    .custom-login-page .t-Region-title {
-        font-size: 52px !important;
-        margin-bottom: 24px !important;
-    }
-}
-
-/* mobile */
-@media (max-width: 640px) {
-    body.custom-login-page,
-    .custom-login-page .t-Body,
-    .custom-login-page #wwvFlowForm,
-    .custom-login-page .t-Body-content {
-        background-image: url("#APP_IMAGES#m_login.png") !important;
-        background-repeat: no-repeat !important;
-        background-position: center top !important;
-        background-size: cover !important;
+    body.custom-login-page #login-panel::before {
+        font-size: 56px !important;
+        margin-bottom: 20px !important;
     }
 
-    .custom-login-page .t-Login-container {
-        min-height: 100vh !important;
-        padding: 0 !important;
-        justify-content: center !important;
-        align-items: stretch !important;
-    }
-
-    .custom-login-page .t-Login-region {
-        width: 100% !important;
-        max-width: 100% !important;
-        min-height: 100vh !important;
-        padding: 120px 24px 30px 24px !important;
-        background: rgba(24, 0, 50, 0.74) !important;
-    }
-
-    .custom-login-page .t-Login-title,
-    .custom-login-page .t-Region-title {
-        font-size: 48px !important;
-        margin-bottom: 22px !important;
-    }
-
-    .custom-login-page input[type="text"],
-    .custom-login-page input[type="password"] {
+    body.custom-login-page #login-panel input[type="text"],
+    body.custom-login-page #login-panel input[type="password"] {
         height: 48px !important;
         font-size: 15px !important;
     }
 
-    .custom-login-page .t-Button,
-    .custom-login-page button.t-Button {
+    body.custom-login-page #login-panel .t-Button,
+    body.custom-login-page #login-panel button.t-Button {
         height: 50px !important;
         font-size: 17px !important;
     }
 }
 
+/* smaller phones */
+@media (max-width: 480px) {
+    body.custom-login-page #login-panel {
+        padding: 31vh 22px 28px 22px !important;
+    }
 
-
-
-
-Also set these in APEX:
-
-Page 9999 → CSS Classes
-custom-login-page
-Change page/login title to:
-LOGIN
-Change button label to:
-LOGIN
-Hide or remove:
-Remember username
-Help icon
-Sign up/Register text
-Social buttons
-
-If your page still shows default APEX styling after this, send me a screenshot of Page Designer for Page 9999, and I’ll give you the exact selectors for your login page structure.
+    body.custom-login-page #login-panel::before {
+        font-size: 52px !important;
+    }
+}
